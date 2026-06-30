@@ -1,0 +1,28 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ===== Django =====
+*.log
+db.sqlite3
+/staticfiles/
+/media/
+
+# ===== Секреты и окружение (НЕ коммитим пароли и ключи!) =====
+.env
+
+# ===== Виртуальные окружения =====
+.venv/
+venv/
+env/
+
+# ===== Node / React (понадобится в Фазе 2) =====
+node_modules/
+dist/
+
+# ===== Редакторы и ОС =====
+.vscode/
+.idea/
+.DS_Store
