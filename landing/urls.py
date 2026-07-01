@@ -10,4 +10,6 @@ urlpatterns = [
     path("", views.home, name="home"),
     # Админка: редактирование Hero-блока
     path("manage/hero/", views.hero_edit, name="hero_edit"),
+    # Админка: редактирование блока «Команда»
+    path("manage/team/", views.team_edit, name="team_edit"),
 ]
