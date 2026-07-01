@@ -37,9 +37,7 @@ def hero_edit(request):
 
 
 def team_edit(request):
-    """Админка: редактирование Team-блока и его статистики."""
-    team = TeamMember.objects.first()
-
+    """Редактирование команды"""
     if request.method == "POST":
         # Форму отправили — наполняем формы присланными данными (request.POST)
         formset = TeamMemberFormSet(
@@ -52,7 +50,6 @@ def team_edit(request):
         # Обычное открытие страницы (GET) — формы с текущими данными
         formset = TeamMemberFormSet(queryset=TeamMember.objects.all())
 
-    return render(request, "landing/manage/hero_edit.html", {
+    return render(request, "landing/manage/team_edit.html", {
         "formset": formset,
-        "team": team,
     })
