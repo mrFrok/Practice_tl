@@ -1,13 +1,14 @@
 from django.shortcuts import redirect, render
 
 from .forms import HeroForm, HeroStatFormSet
-from .models import HeroBlock
+from .models import HeroBlock, TeamMember
 
 
 def home(request):
     """Публичная страница: показываем Hero с данными из БД."""
     hero = HeroBlock.objects.first()
-    return render(request, "landing/home.html", {"hero": hero})
+    team = TeamMember.objects.all()
+    return render(request, "landing/home.html", {"hero": hero, "team": team})
 
 
 def hero_edit(request):
@@ -21,7 +22,8 @@ def hero_edit(request):
         if form.is_valid() and formset.is_valid():
             form.save()      # сохраняем заголовок/подзаголовок
             formset.save()   # добавляет новые, удаляет отмеченные, обновляет старые
-            return redirect("landing:hero_edit")   # PRG: после сохранения — редирект
+            # PRG: после сохранения — редирект
+            return redirect("landing:hero_edit")
     else:
         # Обычное открытие страницы (GET) — формы с текущими данными
         form = HeroForm(instance=hero)

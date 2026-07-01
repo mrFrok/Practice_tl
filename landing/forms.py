@@ -1,7 +1,7 @@
 from django import forms
-from django.forms import inlineformset_factory
+from django.forms import inlineformset_factory, modelformset_factory
 
-from .models import HeroBlock, HeroStat
+from .models import HeroBlock, HeroStat, TeamMember
 
 
 class HeroForm(forms.ModelForm):
@@ -14,8 +14,16 @@ class HeroForm(forms.ModelForm):
 # это самостоятельный объект уровня файла.
 HeroStatFormSet = inlineformset_factory(
     HeroBlock,                           # родительская модель
-    HeroStat,                            # дочерняя модель (её поля и редактируем)
+    # дочерняя модель (её поля и редактируем)
+    HeroStat,
     fields=["value", "label", "order"],  # поля именно HeroStat
     extra=1,                             # одна пустая форма — для новой записи
     can_delete=True,                     # галочка «удалить» у каждой формы
+)
+
+TeamMemberFormSet = modelformset_factory(
+    TeamMember,
+    fields=["name", "position", "photo", "order"],
+    extra=1,
+    can_delete=True,
 )

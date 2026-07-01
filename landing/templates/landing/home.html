@@ -30,5 +30,14 @@
             {% endfor %}
         </div>
     </section>
+    <section class="team">
+        <h2>Любим и бережем свою команду</h2>
+        {% for member in team %}
+            <div class="member">
+                <h3>{{member.name}}</h3>
+                <p>{{member.position}}</p>
+            </div>
+        {% endfor %}
+    </section>
 </body>
 </html>
