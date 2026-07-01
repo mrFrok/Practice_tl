@@ -21,3 +21,16 @@ class HeroStat(models.Model):
 
     def __str__(self):
         return f"{self.value} {self.label}"
+
+
+class TeamMember(models.Model):
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    photo = models.CharField(max_length=300, blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.name
