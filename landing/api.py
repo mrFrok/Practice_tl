@@ -7,11 +7,21 @@ from .serializers import (
 )
 
 
-# Образец: ModelViewSet даёт весь CRUD (список, создать, изменить, удалить) сразу.
-# Достаточно указать queryset (какие объекты) и serializer_class (чем в JSON).
 class TeamMemberViewSet(viewsets.ModelViewSet):
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
 
-# ↓↓↓ ТВОЯ ЧАСТЬ: три ViewSet по образцу (Vacancy, Direction, Benefit) ↓↓↓
+class DirectionViewSet(viewsets.ModelViewSet):
+    queryset = Direction.objects.all()
+    serializer_class = DirectionSerializer
+
+
+class BenefitViewSet(viewsets.ModelViewSet):
+    queryset = Benefit.objects.all()
+    serializer_class = BenefitSerializer
+
+
+class VacancyViewSet(viewsets.ModelViewSet):
+    queryset = Vacancy.objects.all()
+    serializer_class = VacancySerializer
