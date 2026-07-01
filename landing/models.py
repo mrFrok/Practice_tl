@@ -34,3 +34,41 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Vacancy(models.Model):
+    title = models.CharField(max_length=150)
+    format = models.CharField(max_length=50, blank=True)
+    url = models.URLField(blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
+
+
+class Direction(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=300, blank=True)
+    technologies = models.CharField(max_length=300, blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.name
+
+
+class Benefit(models.Model):
+    title = models.CharField(max_length=150)
+    description = models.CharField(max_length=150, blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
