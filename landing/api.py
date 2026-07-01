@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 from rest_framework.routers import DefaultRouter
 
-from .models import HeroBlock, TeamMember, Vacancy, Direction, Benefit
+from .models import HeroBlock, HeroStat, TeamMember, Vacancy, Direction, Benefit
 from .serializers import (
-    HeroSerializer, TeamMemberSerializer, VacancySerializer,
-    DirectionSerializer, BenefitSerializer,
+    HeroSerializer, HeroStatWriteSerializer, TeamMemberSerializer,
+    VacancySerializer, DirectionSerializer, BenefitSerializer,
 )
 
 
@@ -33,10 +33,18 @@ class HeroViewSet(viewsets.ModelViewSet):
     serializer_class = HeroSerializer
 
 
+# Отдельный набор для статистики Hero — чтобы админка могла
+# добавлять/менять/удалять строки статистики через /api/stats/.
+class HeroStatViewSet(viewsets.ModelViewSet):
+    queryset = HeroStat.objects.all()
+    serializer_class = HeroStatWriteSerializer
+
+
 # Router строит URL'ы для каждого ViewSet автоматически:
 #   /api/team/ (список) и /api/team/<id>/ (одна запись), и так для всех.
 router = DefaultRouter()
 router.register("hero", HeroViewSet)
+router.register("stats", HeroStatViewSet)
 router.register("team", TeamMemberViewSet)
 router.register("vacancies", VacancyViewSet)
 router.register("directions", DirectionViewSet)

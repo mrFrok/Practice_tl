@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import './index.css'
 import App from './App.jsx'
+import Admin from './admin/Admin.jsx'
 
 // Плавный инерционный скролл, как на travelline.tech.
 const lenis = new Lenis()
@@ -29,6 +31,11 @@ document.addEventListener('click', (e) => {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>,
 )

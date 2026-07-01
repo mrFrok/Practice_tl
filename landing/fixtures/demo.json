@@ -43,7 +43,7 @@
   "fields": {
     "name": "Иван Петров",
     "position": "Backend-разработчик",
-    "photo": "",
+    "photo": "/team/1.svg",
     "order": 1
   }
 },
@@ -53,7 +53,7 @@
   "fields": {
     "name": "Мария Сидорова",
     "position": "Frontend-разработчик",
-    "photo": "",
+    "photo": "/team/2.svg",
     "order": 2
   }
 },
@@ -63,7 +63,7 @@
   "fields": {
     "name": "Алексей Смирнов",
     "position": "DevOps-инженер",
-    "photo": "",
+    "photo": "/team/3.svg",
     "order": 3
   }
 },
@@ -73,7 +73,7 @@
   "fields": {
     "name": "Ольга Кузнецова",
     "position": "Продуктовый дизайнер",
-    "photo": "",
+    "photo": "/team/4.svg",
     "order": 4
   }
 },
@@ -83,7 +83,7 @@
   "fields": {
     "name": "Дмитрий Волков",
     "position": "QA-инженер",
-    "photo": "",
+    "photo": "/team/5.svg",
     "order": 5
   }
 },

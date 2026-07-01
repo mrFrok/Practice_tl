@@ -34,6 +34,14 @@ class HeroStatSerializer(serializers.ModelSerializer):
         fields = ["id", "value", "label", "order"]
 
 
+# Отдельный сериализатор для записи статистики через /api/stats/:
+# включает поле hero (к какому Hero-блоку относится строка).
+class HeroStatWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HeroStat
+        fields = ["id", "hero", "value", "label", "order"]
+
+
 class HeroSerializer(serializers.ModelSerializer):
     # stats — вложенный список статистики; работает через related_name="stats".
     # read_only: пока отдаём на чтение (запись вложенных данных сложнее).

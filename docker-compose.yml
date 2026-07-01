@@ -21,7 +21,7 @@ services:
   # ── Наше Django-приложение ─────────────────────────────────────────
   web:
     build: .                        # собрать образ по нашему Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh /app/entrypoint.sh  # миграции + демо-данные + сервер
     env_file: .env                  # SECRET_KEY, DEBUG, POSTGRES_* из .env
     environment:
       # host/port БД — не секреты, они специфичны для docker-сети,
@@ -36,6 +36,17 @@ services:
     depends_on:
       db:
         condition: service_healthy  # web стартует только когда БД готова
+
+  # ── React-фронт (Vite dev-server) ──────────────────────────────────
+  frontend:
+    build: ./frontend               # образ по frontend/Dockerfile
+    ports:
+      - "5173:5173"                 # localhost:5173 (хост) → 5173 (контейнер)
+    volumes:
+      - ./frontend:/app             # код с хоста — для hot-reload
+      - /app/node_modules           # но node_modules берём из образа
+    depends_on:
+      - web                         # фронт ходит в API сервиса web
 
 # Объявление именованного тома для данных PostgreSQL
 volumes:

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { API } from './api'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -30,6 +31,10 @@ function App() {
       <Benefits />
       <footer className="footer">
         © {new Date().getFullYear()} TravelLine Tech — учебный проект (летняя практика)
+        {' · '}
+        <Link to="/admin" style={{ color: 'inherit', textDecoration: 'underline' }}>
+          Админка
+        </Link>
       </footer>
     </>
   )

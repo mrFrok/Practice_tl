@@ -19,16 +19,21 @@ function Team() {
           Люди, которые вдохновляют своими достижениями
         </p>
       </Reveal>
-      <div className="grid">
-        {team.map((member, i) => (
-          <Reveal key={member.id} delay={i * 80}>
-            <article className="card">
-              <h3 className="card__title h-card">{member.name}</h3>
-              <p className="card__text">{member.position}</p>
-            </article>
-          </Reveal>
+      <Reveal className="team__strip">
+        {team.map((member) => (
+          <article key={member.id} className="team-card">
+            <img
+              className="team-card__photo"
+              src={member.photo}
+              alt={member.name}
+            />
+            <div className="team-card__body">
+              <div className="team-card__name">{member.name}</div>
+              <div className="team-card__role">{member.position}</div>
+            </div>
+          </article>
         ))}
-      </div>
+      </Reveal>
     </section>
   )
 }
