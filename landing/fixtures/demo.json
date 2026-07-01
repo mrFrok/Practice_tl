@@ -1,0 +1,224 @@
+[
+{
+  "model": "landing.heroblock",
+  "pk": 1,
+  "fields": {
+    "title": "TravelLine",
+    "subtitle": "Стабильно растём\nи принимаем новые вызовы\nTravelTech индустрии"
+  }
+},
+{
+  "model": "landing.herostat",
+  "pk": 1,
+  "fields": {
+    "hero": 1,
+    "value": "2008",
+    "label": "год основания",
+    "order": 1
+  }
+},
+{
+  "model": "landing.herostat",
+  "pk": 2,
+  "fields": {
+    "hero": 1,
+    "value": "300+",
+    "label": "сотрудников",
+    "order": 2
+  }
+},
+{
+  "model": "landing.herostat",
+  "pk": 3,
+  "fields": {
+    "hero": 1,
+    "value": "12 000+",
+    "label": "отелей-клиентов",
+    "order": 3
+  }
+},
+{
+  "model": "landing.teammember",
+  "pk": 1,
+  "fields": {
+    "name": "Иван Петров",
+    "position": "Backend-разработчик",
+    "photo": "",
+    "order": 1
+  }
+},
+{
+  "model": "landing.teammember",
+  "pk": 2,
+  "fields": {
+    "name": "Мария Сидорова",
+    "position": "Frontend-разработчик",
+    "photo": "",
+    "order": 2
+  }
+},
+{
+  "model": "landing.teammember",
+  "pk": 3,
+  "fields": {
+    "name": "Алексей Смирнов",
+    "position": "DevOps-инженер",
+    "photo": "",
+    "order": 3
+  }
+},
+{
+  "model": "landing.teammember",
+  "pk": 4,
+  "fields": {
+    "name": "Ольга Кузнецова",
+    "position": "Продуктовый дизайнер",
+    "photo": "",
+    "order": 4
+  }
+},
+{
+  "model": "landing.teammember",
+  "pk": 5,
+  "fields": {
+    "name": "Дмитрий Волков",
+    "position": "QA-инженер",
+    "photo": "",
+    "order": 5
+  }
+},
+{
+  "model": "landing.vacancy",
+  "pk": 1,
+  "fields": {
+    "title": "Senior Python-разработчик",
+    "format": "удалённо",
+    "url": "https://hh.ru/vacancy/123",
+    "order": 1
+  }
+},
+{
+  "model": "landing.vacancy",
+  "pk": 2,
+  "fields": {
+    "title": "Frontend-разработчик (React)",
+    "format": "офис / гибрид",
+    "url": "https://hh.ru/vacancy/456",
+    "order": 2
+  }
+},
+{
+  "model": "landing.vacancy",
+  "pk": 3,
+  "fields": {
+    "title": "Продуктовый аналитик",
+    "format": "удалённо",
+    "url": "https://hh.ru/vacancy/789",
+    "order": 3
+  }
+},
+{
+  "model": "landing.vacancy",
+  "pk": 4,
+  "fields": {
+    "title": "QA Automation инженер",
+    "format": "офис",
+    "url": "https://hh.ru/vacancy/101",
+    "order": 4
+  }
+},
+{
+  "model": "landing.direction",
+  "pk": 1,
+  "fields": {
+    "name": "Backend",
+    "description": "Серверная разработка высоконагруженных сервисов бронирования",
+    "technologies": "Python, Django, PostgreSQL",
+    "order": 1
+  }
+},
+{
+  "model": "landing.direction",
+  "pk": 2,
+  "fields": {
+    "name": "Frontend",
+    "description": "Клиентские интерфейсы модулей бронирования и админок",
+    "technologies": "React, TypeScript, Vite",
+    "order": 2
+  }
+},
+{
+  "model": "landing.direction",
+  "pk": 3,
+  "fields": {
+    "name": "Mobile",
+    "description": "Мобильные приложения для отельеров и гостей",
+    "technologies": "Kotlin, Swift",
+    "order": 3
+  }
+},
+{
+  "model": "landing.direction",
+  "pk": 4,
+  "fields": {
+    "name": "DevOps",
+    "description": "Инфраструктура, CI/CD и надёжность сервисов",
+    "technologies": "Docker, Kubernetes, Ansible",
+    "order": 4
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 1,
+  "fields": {
+    "title": "ДМС",
+    "description": "Медицинская страховка с первого рабочего дня",
+    "order": 1
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 2,
+  "fields": {
+    "title": "Обучение",
+    "description": "Курсы, конференции и книги за счёт компании",
+    "order": 2
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 3,
+  "fields": {
+    "title": "Гибкий график",
+    "description": "Сам выбираешь, когда начинать рабочий день",
+    "order": 3
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 4,
+  "fields": {
+    "title": "Спорт",
+    "description": "Компенсация абонемента в спортзал",
+    "order": 4
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 5,
+  "fields": {
+    "title": "Отпуск",
+    "description": "28 дней плюс дополнительные дни за стаж",
+    "order": 5
+  }
+},
+{
+  "model": "landing.benefit",
+  "pk": 6,
+  "fields": {
+    "title": "Техника",
+    "description": "Выдаём технику и всё для комфортной работы",
+    "order": 6
+  }
+}
+]

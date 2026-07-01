@@ -17,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from landing.api import router
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('landing.urls')),   # корень сайта → приложение landing
+    path('api/', include(router.urls)),   # REST API (Фаза 2)
+    path('', include('landing.urls')),    # корень сайта → приложение landing
 ]

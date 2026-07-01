@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p(q@v*0arbvr*%ikmn$%uas!i=bziqfuga03td#vtn#y#&6q=='
+# Секретный ключ берём из окружения (.env). Дефолт — только для локальной разработки.
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key-not-for-production')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG из окружения: переменная приходит строкой, сравниваем с 'True'.
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Какие имена хостов разрешено обслуживать (защита от подмены заголовка Host).
 # Для разработки — локальные адреса. В проде список сужают до реального домена.
