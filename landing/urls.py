@@ -6,10 +6,12 @@ from . import views
 app_name = "landing"
 
 urlpatterns = [
-    # Пустой путь "" = корень сайта (http://localhost:8000/) → вьюха home
+    # Публичная страница
     path("", views.home, name="home"),
-    # Админка: редактирование Hero-блока
+
+    # Админка
+    path("manage/", views.manage_dashboard, name="manage_dashboard"),
     path("manage/hero/", views.hero_edit, name="hero_edit"),
-    # Админка: редактирование блока «Команда»
-    path("manage/team/", views.team_edit, name="team_edit"),
+    # Один маршрут на все блоки-списки: <block> = team / vacancy / direction / benefit
+    path("manage/list/<str:block>/", views.list_block_edit, name="list_block_edit"),
 ]

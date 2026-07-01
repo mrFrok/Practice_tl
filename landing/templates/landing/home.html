@@ -39,5 +39,33 @@
             </div>
         {% endfor %}
     </section>
+    <section class="vacancy">
+        <h2>Ищем прямо сейчас</h2>
+        {% for vacancy in vacancies %}
+            <div class="vacancy">
+                <a href="{{ vacancy.url }}">{{ vacancy.title  }}</a> 
+                <p>{{  vacancy.format  }}</p>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="directions">
+        <h2>Направления</h2>
+        {% for direction in directions %}
+            <div class="direction">
+                <h3>{{  direction.name  }}</h3>
+                <p>{{  direction.description  }}</p>
+                <p>{{  direction.technologies  }}</p>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="benefits">
+        <h2>Плюшки и всё такое</h2>
+        {% for benefit in benefits %}
+            <div class="benefit">
+                <h3>{{  benefit.title  }}</h3>
+                <p>{{  benefit.description  }}</p>
+            </div>
+        {% endfor %}
+    </section>
 </body>
 </html>

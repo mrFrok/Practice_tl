@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import inlineformset_factory, modelformset_factory
 
-from .models import HeroBlock, HeroStat, TeamMember
+from .models import HeroBlock, HeroStat, TeamMember, Vacancy, Direction, Benefit
 
 
 class HeroForm(forms.ModelForm):
@@ -10,20 +10,40 @@ class HeroForm(forms.ModelForm):
         fields = ["title", "subtitle"]
 
 
-# Набор форм для статистики Hero. Вынесен из класса HeroForm —
-# это самостоятельный объект уровня файла.
+# Статистика Hero — дочерняя модель (связь ForeignKey), поэтому inline.
 HeroStatFormSet = inlineformset_factory(
-    HeroBlock,                           # родительская модель
-    # дочерняя модель (её поля и редактируем)
+    HeroBlock,
     HeroStat,
-    fields=["value", "label", "order"],  # поля именно HeroStat
-    extra=1,                             # одна пустая форма — для новой записи
-    can_delete=True,                     # галочка «удалить» у каждой формы
+    fields=["value", "label", "order"],
+    extra=1,
+    can_delete=True,
 )
 
+# Блоки-списки — самостоятельные модели, поэтому modelformset.
 TeamMemberFormSet = modelformset_factory(
     TeamMember,
     fields=["name", "position", "photo", "order"],
+    extra=1,
+    can_delete=True,
+)
+
+VacancyFormSet = modelformset_factory(
+    Vacancy,
+    fields=["title", "format", "url", "order"],
+    extra=1,
+    can_delete=True,
+)
+
+DirectionFormSet = modelformset_factory(
+    Direction,
+    fields=["name", "description", "technologies", "order"],
+    extra=1,
+    can_delete=True,
+)
+
+BenefitFormSet = modelformset_factory(
+    Benefit,
+    fields=["title", "description", "order"],
     extra=1,
     can_delete=True,
 )
