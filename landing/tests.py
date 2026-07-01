@@ -1,7 +1,7 @@
 import pytest
 
 from landing.models import HeroBlock
-from landing.forms import HeroForm
+from landing.forms import HeroForm, Vacancy
 
 
 @pytest.mark.django_db
@@ -56,3 +56,16 @@ def test_hero_block_deletion():
     assert hero.stats.count() == 1
     stat.delete()
     assert hero.stats.count() == 0
+
+
+def test_unknown_block_returns_404(client):
+    response = client.get("/manage/list/nonexistent/")
+    assert response.status_code == 404
+
+
+@pytest.mark.django_db
+def test_home_shows_vacancy(client):
+    Vacancy.objects.create(title="Тестовая вакансия", order=1)
+    response = client.get("/")
+    assert response.status_code == 200
+    assert "Тестовая вакансия" in response.content.decode("utf-8")
