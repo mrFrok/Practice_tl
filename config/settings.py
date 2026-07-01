@@ -41,12 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Сторонние библиотеки
+    'rest_framework',
+    'corsheaders',
+
     # Наши приложения
     'landing',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',   # должен стоять высоко в списке
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -134,3 +139,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# URLField: считать введённые ссылки https по умолчанию (готовимся к Django 6.0)
+FORMS_URLFIELD_ASSUME_HTTPS = True
+
+# CORS: каким адресам фронта разрешено обращаться к нашему API.
+# 5173 — порт дев-сервера Vite (React).
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]

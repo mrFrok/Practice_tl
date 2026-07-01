@@ -5,6 +5,10 @@
 Django>=5.2,<5.3          # веб-фреймворк (5.2 — LTS, долгая поддержка)
 psycopg[binary]>=3.2      # драйвер PostgreSQL для Python (v3, с готовыми бинарниками)
 
+# API (Фаза 2)
+djangorestframework>=3.15 # REST API поверх Django
+django-cors-headers>=4.4  # разрешение запросов с фронта (React на другом порту)
+
 # Тесты
 pytest>=8.0               # тестовый фреймворк
 pytest-django>=4.9        # интеграция pytest c Django (тестовая БД, настройки)
